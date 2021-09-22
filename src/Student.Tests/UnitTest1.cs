@@ -1,7 +1,7 @@
 using System;
 using Xunit;
 
-namespace Exercise.Tests
+namespace Student.Tests
 {
     public class UnitTest1
     {
