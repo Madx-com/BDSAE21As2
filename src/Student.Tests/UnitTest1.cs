@@ -37,5 +37,42 @@ namespace Student.Tests
             Assert.Equal(Status.Dropout, dropoutStudent.Status);
             Assert.Equal(Status.Graduated, graduateStudent.Status);
         }
+
+        [Fact]
+        public void ToSting_new_active_dropout_and_graduated_student()
+        {
+            var newStudent = new Student(1);
+            newStudent.GivenName = "Mads";
+            newStudent.Surname = "Ljungberg";
+            newStudent.StartDate = DateTime.Now.AddDays(-1); // Yesterday
+
+            var activeStudent = new Student(2);
+            activeStudent.GivenName = "Paolo";
+            activeStudent.Surname = "Tell";
+            activeStudent.StartDate = DateTime.Now.AddDays(-30); 
+
+            var dropoutStudent = new Student(3);
+            dropoutStudent.GivenName = "Asmus";
+            dropoutStudent.Surname = "Tørsleff";
+            dropoutStudent.StartDate = DateTime.Now.AddDays(-30); 
+            dropoutStudent.EndDate = DateTime.Now.AddDays(-1); 
+
+            
+            var graduateStudent = new Student(4);
+            graduateStudent.GivenName = "Sebastian";
+            graduateStudent.Surname = "Fugmann";
+            graduateStudent.StartDate = DateTime.Now.AddDays(-60); 
+            graduateStudent.EndDate = DateTime.Now.AddDays(-7); 
+            graduateStudent.GraduationDate = DateTime.Now.AddDays(-1); 
+
+            var newExpected = $"Mads Ljungberg\nStatus: New\nEducation start: {newStudent.StartDate.ToString()}";
+            var activeExpected = $"Paolo Tell\nStatus: Active\nEducation start: {activeStudent.StartDate.ToString()}";
+            var dropouExpected =  $"Asmus Tørsleff\nStatus: Dropout\nEducation start: {dropoutStudent.StartDate.ToString()}\nEducation end: {dropoutStudent.EndDate.ToString()}";
+            var graduateExpected = $"Sebastian Fugmann\nStatus: Graduated\nEducation start: {graduateStudent.StartDate.ToString()}\nEducation end: {graduateStudent.EndDate.ToString()}\nGraduation day: {graduateStudent.GraduationDate.ToString()}";
+            Assert.Equal(newExpected, newStudent.ToString());
+            Assert.Equal(activeExpected, activeStudent.ToString());
+            Assert.Equal(dropouExpected, dropoutStudent.ToString());
+            Assert.Equal(graduateExpected, graduateStudent.ToString());
+        }
     }
 }
