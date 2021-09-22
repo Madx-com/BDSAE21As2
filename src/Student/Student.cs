@@ -39,7 +39,7 @@ namespace Student
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append($"{GivenName} {Surname}\nStatus: {Status}");
+            sb.Append($"{GivenName} {Surname}\nID: {ID}\nStatus: {Status}");
             if (StartDate != DateTime.MinValue)
                 sb.Append($"\nEducation start: {StartDate.ToString()}");
             if (EndDate != DateTime.MinValue)

@@ -65,10 +65,10 @@ namespace Student.Tests
             graduateStudent.EndDate = DateTime.Now.AddDays(-7); 
             graduateStudent.GraduationDate = DateTime.Now.AddDays(-1); 
 
-            var newExpected = $"Mads Ljungberg\nStatus: New\nEducation start: {newStudent.StartDate.ToString()}";
-            var activeExpected = $"Paolo Tell\nStatus: Active\nEducation start: {activeStudent.StartDate.ToString()}";
-            var dropouExpected =  $"Asmus Tørsleff\nStatus: Dropout\nEducation start: {dropoutStudent.StartDate.ToString()}\nEducation end: {dropoutStudent.EndDate.ToString()}";
-            var graduateExpected = $"Sebastian Fugmann\nStatus: Graduated\nEducation start: {graduateStudent.StartDate.ToString()}\nEducation end: {graduateStudent.EndDate.ToString()}\nGraduation day: {graduateStudent.GraduationDate.ToString()}";
+            var newExpected = $"Mads Ljungberg\nID: 1\nStatus: New\nEducation start: {newStudent.StartDate.ToString()}";
+            var activeExpected = $"Paolo Tell\nID: 2\nStatus: Active\nEducation start: {activeStudent.StartDate.ToString()}";
+            var dropouExpected =  $"Asmus Tørsleff\nID: 3\nStatus: Dropout\nEducation start: {dropoutStudent.StartDate.ToString()}\nEducation end: {dropoutStudent.EndDate.ToString()}";
+            var graduateExpected = $"Sebastian Fugmann\nID: 4\nStatus: Graduated\nEducation start: {graduateStudent.StartDate.ToString()}\nEducation end: {graduateStudent.EndDate.ToString()}\nGraduation day: {graduateStudent.GraduationDate.ToString()}";
             Assert.Equal(newExpected, newStudent.ToString());
             Assert.Equal(activeExpected, activeStudent.ToString());
             Assert.Equal(dropouExpected, dropoutStudent.ToString());
