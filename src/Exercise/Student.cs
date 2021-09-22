@@ -1,5 +1,3 @@
-using System.Runtime.CompilerServices;
-using System.Dynamic;
 using System;
 namespace Exercise
 {
@@ -19,6 +17,14 @@ namespace Exercise
         public Student(int id)
         {
             ID = id;
+        } 
+
+        private enum checkStatus()
+        {
+            // if(StartDate) //== around same day. -> new
+            // start set but older than new. -> active
+            // EndDate set but not Grad -> dropout
+            // End and Grad set -> graduated
         }
 
         public override string ToString()
